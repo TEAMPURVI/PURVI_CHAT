@@ -7,6 +7,7 @@ import os
 import time
 from datetime import datetime
 import requests
+import config
 
 # MongoDB connection
 client = MongoClient(MONGO_URL, connectTimeoutMS=30000, serverSelectionTimeoutMS=30000)
@@ -15,9 +16,9 @@ chatai = db["WordDb"]
 
 Purvi = Client(
     "chat-gpt",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+    bot_token=config.BOT_TOKEN
 )
 
 # Non-private chats handler (both text and stickers)
