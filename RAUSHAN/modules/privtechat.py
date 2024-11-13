@@ -13,16 +13,22 @@ client = MongoClient(MONGO_URL, connectTimeoutMS=30000, serverSelectionTimeoutMS
 db = client["Word"]
 chatai = db["WordDb"]
 
+Purvi = Client(
+    "chat-gpt",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 
 # Non-private chats handler (both text and stickers)
-@RADHIKA.on_message((filters.text | filters.sticker) & ~filters.private & ~filters.bot)
+@Purvi.on_message((filters.text | filters.sticker) & ~filters.private & ~filters.bot)
 async def vickai(client: Client, message: Message):
     if not message.reply_to_message:
         vick = db["VickDb"]["Vick"]
         is_vick = vick.find_one({"chat_id": message.chat.id})
 
         if not is_vick:
-            await RADHIKA.send_chat_action(message.chat.id, ChatAction.TYPING)
+            await Purvi.send_chat_action(message.chat.id, ChatAction.TYPING)
 
             results = chatai.find({"word": message.text})
             results_list = [result for result in results]
@@ -35,10 +41,10 @@ async def vickai(client: Client, message: Message):
                     await message.reply_text(result['text'])
 
 # Private chats handler (both text and stickers)
-@RADHIKA.on_message((filters.text | filters.sticker) & filters.private & ~filters.bot)
+@Purvi.on_message((filters.text | filters.sticker) & filters.private & ~filters.bot)
 async def vickprivate(client: Client, message: Message):
     if not message.reply_to_message:
-        await RADHIKA.send_chat_action(message.chat.id, ChatAction.TYPING)
+        await Purvi.send_chat_action(message.chat.id, ChatAction.TYPING)
 
         results = chatai.find({"word": message.text})
         results_list = [result for result in results]
