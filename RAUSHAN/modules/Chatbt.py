@@ -5,7 +5,7 @@ from pyrogram.enums import ChatAction
 from pyrogram.types import Message
 
 from config import MONGO_URL
-from RAUSHAN import AMBOT
+from RAUSHAN import dev as AMBOT
 from RAUSHAN.modules.helpers import CHATBOT_ON, is_admins
 
 
