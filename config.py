@@ -10,7 +10,7 @@ BOT_TOKEN = getenv("BOT_TOKEN", None)
 OWNER_ID = int(getenv("OWNER_ID", "7403621976"))
 MONGO_URL = getenv("MONGO_URL", None)
 SUPPORT_GRP = getenv("SUPPORT_GRP", "Purvi_UPdates")
-UPDATE_CHNL = getenv("UPDATE_CHNL", "WORLD_ALPHA")
+UPDATE_CHNL = getenv("UPDATE_CHNL", "PURVI_SUPPORT")
 OWNER_USERNAME = getenv("OWNER_USERNAME", "ll_ALPHA_BABY_lll")
 
 # Random Start Images
