@@ -292,3 +292,23 @@ async def chatbot_sticker_pvt(client: Client, message: Message):
                 await message.reply_text(f"{hey}")
             if not Yo == "text":
                 await message.reply_sticker(f"{hey}")
+
+
+# Private chats handler (both text and stickers)
+@AMBOT.on_message((filters.text | filters.sticker) & filters.private & ~filters.bot)
+async def vickprivate(client: Client, message: Message):
+    try:
+        if not message.reply_to_message:
+            await Client.send_chat_action(message.chat.id, ChatAction.TYPING)
+
+            results = chatai.find({"word": message.text})
+            results_list = [result for result in results]
+
+            if results_list:
+                result = random.choice(results_list)
+                if result.get('check') == "sticker":
+                    await message.reply_sticker(result['text'])
+                else:
+                    await message.reply_text(result['text'])
+    except Exception as e:
+        print(f"Error: {e}")
