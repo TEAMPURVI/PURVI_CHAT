@@ -1,11 +1,11 @@
 import random
 from pymongo import MongoClient
 from pyrogram import Client, filters
-from pyrogram.enums import ChatAction
+from pyrogram.enums import ChatAction, ChatType
 from pyrogram.types import Message
 
 from config import MONGO_URL
-from RAUSHAN import dev as AMBOT
+from RAUSHAN import AMBOT
 from RAUSHAN.modules.helpers import CHATBOT_ON, is_admins
 
 
@@ -24,17 +24,17 @@ async def handle_chat_message(client: Client, message: Message):
     chatai = chatdb["Word"]["WordDb"]
     vickdb = chatdb["VickDb"]["Vick"]
 
-    if message.chat.type == "private":
+    if message.chat.type == ChatType.PRIVATE:
         await respond_from_db(client, message, chatai)
         return
 
-    if message.chat.type in ["group", "supergroup"]:
+    if message.chat.type in ["ChatType.GROUP", "ChatType.SUPERGROUP"]:
         if not message.reply_to_message:
             is_vick = vickdb.find_one({"chat_id": message.chat.id})
             if not is_vick:
                 return
             await respond_from_db(client, message, chatai)
-        elif message.reply_to_message.from_user.id == client.id:
+        elif message.reply_to_message.from_user.is_self:
             await respond_from_db(client, message, chatai)
         else:
             await learn_response(message, chatai)
