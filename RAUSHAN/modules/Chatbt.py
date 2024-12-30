@@ -2,7 +2,6 @@ import random
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from pyrogram.enums import ChatAction, ChatType
-from pyrogram.types import Message
 from pyrogram.types import *
 from config import MONGO_URL
 from RAUSHAN import AMBOT
