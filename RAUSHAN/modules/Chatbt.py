@@ -28,12 +28,15 @@ async def handle_chat_message(client: Client, message: Message):
         return
 
     if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
+        
+        is_vick = vickdb.find_one({"chat_id": message.chat.id})
+        if not is_vick:
+            return
+
+    
         if not message.reply_to_message:
-            is_vick = vickdb.find_one({"chat_id": message.chat.id})
-            if not is_vick:
-                return
             await respond_from_db(client, message, chatai)
-        elif message.reply_to_message.from_user.is_self:
+        elif message.reply_to_message.from_user and message.reply_to_message.from_user.is_self:
             await respond_from_db(client, message, chatai)
         else:
             await learn_response(message, chatai)
