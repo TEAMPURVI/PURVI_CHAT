@@ -9,7 +9,7 @@ from RAUSHAN import AMBOT
 from RAUSHAN.modules.helpers import CHATBOT_ON, is_admins
 
 
-@AMBOT.on_message(filters.command("chatbot") & filters.group & ~filters.bot)
+@AMBOT.on_message(filters.command("chatbot") & filters.group, group=6)
 @is_admins
 async def toggle_chatbot(_, message: Message):
     await message.reply_text(
@@ -18,7 +18,9 @@ async def toggle_chatbot(_, message: Message):
     )
 
 
-@AMBOT.on_message(filters.text | filters.sticker)
+@AMBOT.on_message(
+    (filters.text & filters.sticker & ~filters.bot), group=4
+)
 async def handle_chat_message(client: Client, message: Message):
     chatdb = MongoClient(MONGO_URL)
     chatai = chatdb["Word"]["WordDb"]
