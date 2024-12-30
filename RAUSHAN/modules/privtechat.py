@@ -31,7 +31,7 @@ async def vickai(client: Client, message: Message):
         is_vick = vick.find_one({"chat_id": message.chat.id})
 
         if not is_vick:
-            await Purvi.send_chat_action(message.chat.id, ChatAction.TYPING)
+            await Client.send_chat_action(message.chat.id, ChatAction.TYPING)
 
             results = chatai.find({"word": message.text})
             results_list = [result for result in results]
@@ -48,7 +48,7 @@ async def vickai(client: Client, message: Message):
 async def vickprivate(client: Client, message: Message):
     try:
         if not message.reply_to_message:
-            await Purvi.send_chat_action(message.chat.id, ChatAction.TYPING)
+            await Client.send_chat_action(message.chat.id, ChatAction.TYPING)
 
             results = chatai.find({"word": message.text})
             results_list = [result for result in results]
