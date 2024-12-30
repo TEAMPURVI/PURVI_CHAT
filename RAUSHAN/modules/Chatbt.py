@@ -27,7 +27,7 @@ async def handle_chat_message(client: Client, message: Message):
         await respond_from_db(client, message, chatai)
         return
 
-    if message.chat.type in ["ChatType.GROUP", "ChatType.SUPERGROUP"]:
+    if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
         if not message.reply_to_message:
             is_vick = vickdb.find_one({"chat_id": message.chat.id})
             if not is_vick:
