@@ -17,9 +17,7 @@ async def toggle_chatbot(_, message: Message):
     )
 
 
-@AMBOT.on_message(
-    (filters.text & filters.sticker & ~filters.bot), group=4
-)
+@AMBOT.on_message((filters.text | filters.sticker) & ~filters.bot, group=4)
 async def handle_chat_message(client: Client, message: Message):
     chatdb = MongoClient(MONGO_URL)
     chatai = chatdb["Word"]["WordDb"]
