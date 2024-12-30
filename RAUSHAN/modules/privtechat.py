@@ -3,6 +3,7 @@ from pyrogram.types import *
 from pyrogram.enums import ChatAction
 from pymongo import MongoClient
 import random
+from RAUSHAN import AMBOT
 import os
 import time
 from datetime import datetime
@@ -15,7 +16,7 @@ client = MongoClient(MONGO_URL, connectTimeoutMS=30000, serverSelectionTimeoutMS
 db = client["Word"]
 chatai = db["WordDb"]
 
-Purvi = Client(
+AMBOT = Client(
     "chat-gpt",
     api_id=config.API_ID,
     api_hash=config.API_HASH,
@@ -23,7 +24,7 @@ Purvi = Client(
 )
 
 # Non-private chats handler (both text and stickers)
-@Purvi.on_message((filters.text | filters.sticker) & ~filters.private & ~filters.bot)
+@AMBOT.on_message((filters.text | filters.sticker) & ~filters.private & ~filters.bot)
 async def vickai(client: Client, message: Message):
     if not message.reply_to_message:
         vick = db["VickDb"]["Vick"]
@@ -43,7 +44,7 @@ async def vickai(client: Client, message: Message):
                     await message.reply_text(result['text'])
 
 # Private chats handler (both text and stickers)
-@Purvi.on_message((filters.text | filters.sticker) & filters.private & ~filters.bot)
+@AMBOT.on_message((filters.text | filters.sticker) & filters.private & ~filters.bot)
 async def vickprivate(client: Client, message: Message):
     try:
         if not message.reply_to_message:
