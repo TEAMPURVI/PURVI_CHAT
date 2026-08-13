@@ -1,1 +1,1 @@
-worker: python3 -m RAUSHAN
+worker: python3 -m SonaliChat 
