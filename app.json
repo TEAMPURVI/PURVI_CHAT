@@ -1,40 +1,52 @@
 {
-  "name": "𝐏ᴜʀᴠɪ 𝐂ʜᴀᴛ",
-  "description": "A telegram bot",
-  "logo": "https://telegra.ph/file/c319f8cffa722e5c4bb85.jpg",
+  "name": "Sonali Chat",
+  "description": "Sonali Chat is an AI-powered Telegram bot with smart responses, automation, and seamless integrations using Python, MongoDB, and Pyrogram.",
+  "logo": "https://graph.org/file/826485f2d7db6f09db8ed.jpg",
   "keywords": [
-    "Chatbot",
-    "mongodb",
-    "python",
-    "pyrogram"
+    "SonaliChat",
+    "MongoDB",
+    "Python",
+    "Pyrogram"
   ],
-    "buildpacks": [{
-    "url": "heroku/python"
-  }],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
   "repository": "https://github.com/TEAMPURVI/PURVI_CHAT",
   "env": {
     "API_ID": {
       "description": "Get this value from my.telegram.org/apps.",
       "required": true,
-      "value": ""
+      "value": "24168862"
     },
     "API_HASH": {
       "description": "Get this value from my.telegram.org/apps.",
       "required": true,
-      "value": ""
+      "value": "916a9424dd1e58ab7955001ccc0172b3"
     },
     "BOT_TOKEN": {
-      "description": "A Bot token from @BotFather",
+      "description": "A bot token from @BotFather.",
       "required": true,
       "value": ""
     },
     "MONGO_URL": {
-      "description": "Get a mongodb url from https://cloud.mongodb.com.",
+      "description": "MongoDB connection URL from https://cloud.mongodb.com.",
       "required": true,
       "value": ""
     },
+    "AUTH_CHANNEL": {
+      "description": "The Telegram channel ID for Fsub authentication.",
+      "required": true,
+      "value": ""
+    },
+    "FSUB": {
+      "description": "Enable forced subscription (true/false) & Promote Bot Admin On Fsub Channel",
+      "required": true,
+      "value": "True"
+    },
     "OWNER_ID": {
-      "description": "User id of the user who will known as owner of the bot.",
+      "description": "User ID of the bot owner.",
       "required": true,
       "value": ""
     }
