@@ -1,9 +1,10 @@
-flask
-pyrogram==2.0.106
 pymongo
 motor
 requests
 dnspython
-tgcrypto==1.2.2
+tgcrypto
 asyncio
 python-dotenv
+aiohttp
+pyrofork
+google-genai
