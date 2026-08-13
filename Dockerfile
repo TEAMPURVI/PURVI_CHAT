@@ -8,5 +8,5 @@ COPY . /app/
 WORKDIR /app/
 RUN pip3 install -U -r requirements.txt
 
-CMD python3 -m RAUSHAN
 
+CMD python3 -m SonaliChat 
