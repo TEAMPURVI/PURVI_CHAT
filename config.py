@@ -1,56 +1,66 @@
+# =======================================================
+# ©️ 2026-27 All Rights Reserved by Purvi Bots (TEAMPURVI) 🚀
+
+# This source code is under MIT License 📜 Unauthorized forking, importing, or using this code without giving proper credit will result in legal action ⚠️
+ 
+# 📩 DM for permission : @TheSigmaCoder
+# =======================================================
+
 from os import getenv
+import os
 
 from dotenv import load_dotenv
-
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "21803165"))
-API_HASH = getenv("API_HASH", "05e5e695feb30e25bef47484cc006da7")
+API_ID = int(getenv("API_ID", None))
+API_HASH = getenv("API_HASH", None)
 BOT_TOKEN = getenv("BOT_TOKEN", None)
-OWNER_ID = int(getenv("OWNER_ID", "7403621976"))
+OWNER_ID = int(getenv("OWNER_ID", None))
 MONGO_URL = getenv("MONGO_URL", None)
-SUPPORT_GRP = getenv("SUPPORT_GRP", "Purvi_UPDATES")
-UPDATE_CHNL = getenv("UPDATE_CHNL", "PURVI_BOTS")
-OWNER_USERNAME = getenv("OWNER_USERNAME", "TheSigmaCoder")
 
-# Random Start Images
-IMG = [
-    "https://telegra.ph/file/00eb565274ccbffcf149d.jpg",
-    "https://telegra.ph/file/396e2af77c4664164de18.jpg",
-    "https://telegra.ph/file/6f92a0e943d68a15169c0.jpg",
-    "https://telegra.ph/file/d49fbf4c00f839641afe3.jpg",
-    "https://telegra.ph/file/cdcdceb3d4fc34675b815.jpg",
-    "https://telegra.ph/file/cc6259af790c13f98c38c.jpg",
-    "https://telegra.ph/file/ffa18225730df716d3532.jpg",
-    "https://telegra.ph/file/dc051f4160954159675a2.jpg",
-    "https://telegra.ph/file/e0e0a3f2addbf58b943e8.jpg",
-    "https://telegra.ph/file/2e6d9db59c537c4521440.jpg",
-    "https://telegra.ph/file/f1951920bbd57921d8820.jpg",
-    "https://telegra.ph/file/ece475f9a419442c18f1d.jpg",
-    "https://telegra.ph/file/99a0014129f08eb1a44dc.jpg",
-    "https://telegra.ph/file/ac8e3751509cf4e1b4756.jpg",
-    "https://telegra.ph/file/e07ef19b1f9bbde9909ad.jpg",
-    "https://telegra.ph/file/d3ee41261ed7779f30a89.jpg",
-]
+API_KEY = getenv("API_KEY", "AIzaSyBZP0V66yZivXCZNGC1V7uloqrjgRTe53w")
+# Gen A  Fresh Api Key ( https://aistudio.google.com/app/apikey )
+
+AUTH_CHANNEL = int(getenv("AUTH_CHANNEL", None)) # Fsub Channel Id
+FSUB = getenv("FSUB", True) # Promote Bot Admin on Your Channel (Fsub Channel Id Channel ) 
+
+OWNER_ID = int(getenv("OWNER_ID", None))
+OWNER = 7473021518
+LOGGER_GROUP_ID = -1003673268434
+
+SUPPORT_GROUP = os.environ.get("SUPPORT_GROUP", "PURVI_BOTS")
+UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "PURVI_UPDATES")
 
 
-# Random Stickers
 STICKER = [
-    "CAACAgEAAxkBAAIJomRdLhVJVebkx0JRsp1STwTv3t3eAAJrAgAClpxhRD4z4bgqlIF0LwQ",
-    "CAACAgUAAxkBAAIJo2RdLhjLjCpmPipMT8ksrqwUjGAIAAK1BQACLZ8oVFVNmhalU8eOLwQ",
-    "CAACAgUAAxkBAAIJpGRdLkpU7t2WDj9zUFgCJ5uHUdGHAALTBAAC59CYV3t9x-f0tt4OLwQ",
+    "CAACAgUAAxkBAAIGpGp-VJ-6cZFAaeyhxyCLjPYtYE8fAAIlGAACKI6wVVNEvN-6z3Z7HgQ",
+    "CAACAgUAAxkBAAIGpWp-VKJF8N-4rcnqFxHwzaYRUQGHAAK4GQAC_SsIVhGA75QnH5eeHgQ",
+    "CAACAgUAAxkBAAIGpmp-VKP13V0vDwp1viybZeTqgqzfAAI4FwACDDexVVp91U_1BZKFHgQ",
+    "CAACAgUAAxkBAAIGp2p-VKZV-sQvGudORSv3he6HYnkAA4wVAAKlaghW3OVYVMaWLLAeBA",
+    "CAACAgUAAxkBAAIGqGp-VKvdNZXSTdVX31pnlCPJArVoAALdGwACYXsIVp5U_CAhCyEfHgQ"
 ]
 
-
-EMOJIOS = [
-    "🎲",
-    "🔥",
-    "⚡️",
-    "⛈",
-    "🌩",
-    "🌦",
-    "☀️",
-    "💫",
-    "🐳",
-    "🦑",
+IMG = [
+"https://files.catbox.moe/4q7c4w.jpg",
+"https://files.catbox.moe/90z6sq.jpg",
+"https://files.catbox.moe/rdfi4z.jpg",
+"https://files.catbox.moe/6f9rgp.jpg",
+"https://files.catbox.moe/99wj12.jpg",
+"https://files.catbox.moe/ezpnd2.jpg",
+"https://files.catbox.moe/e7q55f.jpg",
+"https://files.catbox.moe/qyfsi7.jpg",
+"https://files.catbox.moe/kbke7s.jpg",
+"https://files.catbox.moe/7icvpu.jpg",
+"https://files.catbox.moe/4hd77z.jpg",
+"https://files.catbox.moe/yn7wje.jpg",
+"https://files.catbox.moe/kifsir.jpg",
+"https://files.catbox.moe/zi21kc.jpg",
 ]
+
+# ======================================================
+# ©️ 2026-27 All Rights Reserved by Purvi Bots (TEAMPURVI) 😎
+
+# 🧑‍💻 Developer : t.me/TheSigmaCoder
+# 🔗 Source link : GitHub.com/TEAMPURVI/PURVI_CHAT
+# 📢 Telegram channel : t.me/Purvi_Bots
+# =======================================================
